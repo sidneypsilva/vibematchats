@@ -9,3 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 - All resume analysis runs client-side in src/lib/ats-engine.ts (pure functions, in-memory state only) — privacy requirement: no PII leaves the browser.
+- Resume document exports use src/lib/resume-export.ts in the browser with bundled Unicode fonts; prepare blobs before enabling download controls to preserve mobile user activation and never transmit resume data.

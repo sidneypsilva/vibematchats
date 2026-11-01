@@ -26,6 +26,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Toaster } from "@/components/ui/sonner";
 import { analyze, type AnalysisResult, type SkillStatus } from "@/lib/ats-engine";
+import { createResumeDocx, createResumePdf, deliverResumeFile } from "@/lib/resume-export";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,6 +38,8 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "VibeMatch ATS" },
       { property: "og:description", content: "Score de aderência, matriz de habilidades e currículo ATS-friendly em segundos." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -75,8 +78,10 @@ function download(name: string, content: string, type: string) {
   const a = document.createElement("a");
   a.href = url;
   a.download = name;
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30_000);
 }
 
 function Index() {
@@ -424,6 +429,29 @@ function Dashboard({ result, role, company }: { result: AnalysisResult; role: st
 
 function AtsPreview({ result }: { result: AnalysisResult }) {
   const [mode, setMode] = useState<"doc" | "raw">("doc");
+  const [exports, setExports] = useState<{ markdown: string; docx: Blob; pdf: Blob } | null>(null);
+  const [exportError, setExportError] = useState(false);
+  const [retry, setRetry] = useState(0);
+  useEffect(() => {
+    let cancelled = false;
+    setExportError(false);
+    Promise.all([createResumeDocx(result.atsMarkdown), createResumePdf(result.atsMarkdown)])
+      .then(([docx, pdf]) => {
+        if (!cancelled) setExports({ markdown: result.atsMarkdown, docx, pdf });
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setExportError(true);
+          toast.error("Não foi possível preparar Word e PDF. Tente novamente.");
+        }
+      });
+    return () => { cancelled = true; };
+  }, [result.atsMarkdown, retry]);
+  const ready = exports?.markdown === result.atsMarkdown ? exports : null;
+  const save = (format: "docx" | "pdf") => {
+    if (!ready) return;
+    void deliverResumeFile(ready[format], `curriculo-ats.${format}`).catch(() => toast.error("Não foi possível baixar o arquivo. Tente novamente."));
+  };
   const copy = async () => {
     await navigator.clipboard.writeText(mode === "raw" ? result.atsText : result.atsMarkdown);
     toast.success("Copiado para a área de transferência!");
@@ -466,6 +494,12 @@ function AtsPreview({ result }: { result: AnalysisResult }) {
           <Button onClick={copy} className="bg-vibe text-primary-foreground">
             <Copy className="mr-2 h-4 w-4" /> Copiar
           </Button>
+          <Button variant="outline" disabled={!ready} onClick={() => save("docx")}>
+            <Download className="mr-2 h-4 w-4" /> Baixar Word (.docx)
+          </Button>
+          <Button variant="outline" disabled={!ready} onClick={() => save("pdf")}>
+            <Download className="mr-2 h-4 w-4" /> Baixar PDF
+          </Button>
           <Button variant="outline" onClick={() => download("curriculo-ats.txt", result.atsText, "text/plain")}>
             <Download className="mr-2 h-4 w-4" /> Baixar TXT
           </Button>
@@ -473,6 +507,8 @@ function AtsPreview({ result }: { result: AnalysisResult }) {
             <Download className="mr-2 h-4 w-4" /> Baixar Markdown
           </Button>
         </div>
+        {!ready && !exportError && <p role="status" className="text-center text-xs text-muted-foreground">Preparando Word e PDF…</p>}
+        {exportError && <div className="flex justify-center"><Button variant="ghost" onClick={() => setRetry((value) => value + 1)}><RotateCcw className="mr-2 h-4 w-4" /> Tentar preparar Word e PDF novamente</Button></div>}
       </CardContent>
     </Card>
   );
