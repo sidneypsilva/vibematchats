@@ -31,8 +31,8 @@ export async function createResumeDocx(markdown: string): Promise<Blob> {
     sections: [{
       properties: { page: { size: { width: 11906, height: 16838 }, margin: { top: 1134, bottom: 1134, left: 1134, right: 1134 } } },
       children: resumeBlocks(markdown).map((block) => new Paragraph({
-        heading: block.kind === "title" ? HeadingLevel.HEADING_1 : block.kind === "heading" ? HeadingLevel.HEADING_2 : undefined,
-        numbering: block.kind === "bullet" ? { reference: "resume-bullets", level: 0 } : undefined,
+        ...(block.kind === "title" ? { heading: HeadingLevel.HEADING_1 } : block.kind === "heading" ? { heading: HeadingLevel.HEADING_2 } : {}),
+        ...(block.kind === "bullet" ? { numbering: { reference: "resume-bullets", level: 0 } } : {}),
         children: [new TextRun(block.text)],
       })),
     }],
