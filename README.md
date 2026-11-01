@@ -100,7 +100,7 @@ Arquivos principais:
 |---|---|
 | ![Versão em texto puro do currículo ATS](docs/prints/5_curriculo_ats_texto_puro.png) | ![Botões de download em PDF e DOCX](docs/prints/6_botoes_download.png) |
 
-> Para trocar um print, basta substituir o arquivo em `docs/prints/` mantendo o mesmo nome.
+
 
 
 ---
