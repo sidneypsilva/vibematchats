@@ -188,3 +188,22 @@ npm run dev
 ```
 
 Para rodar os testes: `npx vitest run`
+
+---
+
+
+
+
+## 👤 Autor
+
+Desenvolvido por **Sidney Pereira da Silva**.
+
+Projeto desenvolvido com ❤️ e IA durante o bootcamp **Santander — Construa seu primeiro App com IA** · [DIO](https://www.dio.me) · Santander Open Academy.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seu-perfil)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/seu-usuario)
+
+
+---
+
+<sub>Construído com [Lovable](https://lovable.dev).</sub>
