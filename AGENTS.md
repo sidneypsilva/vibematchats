@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- All resume analysis runs client-side in src/lib/ats-engine.ts (pure functions, in-memory state only) — privacy requirement: no PII leaves the browser.
