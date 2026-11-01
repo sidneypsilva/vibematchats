@@ -86,7 +86,22 @@ Arquivos principais:
 5. Confira o score, a matriz de competências e as sugestões STAR.
 6. Baixe o currículo em **PDF** ou **DOCX**.
 
-> Dica para o portfólio: adicione aqui prints da tela de análise (por exemplo, em `docs/prints/`).
+### Prints da aplicação
+
+| Tela inicial (preenchida) | Dashboard de resultado |
+|---|---|
+| ![Tela inicial com currículo e vaga preenchidos](docs/prints/1_tela_inicial_preenchida.png) | ![Dashboard com score de aderência e matriz de competências](docs/prints/2_dashboard_resultado.png) |
+
+| Melhorias STAR (Antes vs Depois) | Currículo ATS — documento |
+|---|---|
+| ![Cartões de melhorias no formato STAR](docs/prints/3_melhorias_star.png) | ![Pré-visualização do currículo ATS](docs/prints/4_curriculo_ats_documento.png) |
+
+| Currículo ATS — texto puro | Botões de download |
+|---|---|
+| ![Versão em texto puro do currículo ATS](docs/prints/5_curriculo_ats_texto_puro.png) | ![Botões de download em PDF e DOCX](docs/prints/6_botoes_download.png) |
+
+> Para trocar um print, basta substituir o arquivo em `docs/prints/` mantendo o mesmo nome.
+
 
 ---
 
