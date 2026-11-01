@@ -54,7 +54,7 @@ async function readFile(file: File): Promise<string> {
       let lastY: number | null = null;
       const out: string[] = [];
       for (const it of c.items as { str: string; transform: number[] }[]) {
-        const y = it.transform[5];
+        const y = it.transform[5] ?? 0;
         if (lastY !== null && Math.abs(y - lastY) > 2) {
           out.push(line);
           line = "";

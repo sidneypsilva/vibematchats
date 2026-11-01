@@ -285,7 +285,7 @@ export function analyze(resume: string, jd: string, role?: string): AnalysisResu
   else if (score >= 55) feedback.push("Boa base, mas há ajustes que podem colocar você no topo da triagem.");
   else if (skills.length) feedback.push("Aderência baixa: o ATS pode descartar este currículo antes de um humano lê-lo.");
   if (req.length) feedback.push(`Requisitos obrigatórios ausentes: ${req.map((s) => s.skill).join(", ")}. Inclua-os somente se você realmente os domina.`);
-  if (adj.length) feedback.push(`Padronize termos: use "${adj[0].skill}" em vez de "${adj[0].found}" — robôs buscam o termo exato da vaga.`);
+  if (adj.length) feedback.push(`Padronize termos: use "${adj[0]!.skill}" em vez de "${adj[0]!.found}" — robôs buscam o termo exato da vaga.`);
   if (!/\d/.test(resume)) feedback.push("Nenhuma métrica encontrada. Quantifique resultados (%, R$, prazos, volume).");
   const { md, txt } = buildAts(resume, skills, role);
   return { score, skills, star: starSuggestions(resume), feedback, atsMarkdown: md, atsText: txt };
