@@ -159,7 +159,7 @@ export function computeScore(skills: SkillResult[]): number {
 
 const WEAK = /^(responsavel por|responsible for|ajudei|ajudar|participei|participacao|auxiliei|trabalhei|atuei|fazia|realizava|helped|worked on|was involved)/;
 const VERB_MAP: [RegExp, string][] = [
-  [/^(responsavel por|responsible for)\s*/i, "Liderei "],
+  [/^(responsavel por|responsible for)\s*/i, "Liderei a iniciativa de "],
   [/^(ajudei a|ajudei|auxiliei|helped)\s*/i, "Contribuí diretamente para "],
   [/^(participei d[aeo]s?|participei|participacao em|was involved in)\s*/i, "Conduzi "],
   [/^(trabalhei com|trabalhei em|worked on)\s*/i, "Desenvolvi soluções com "],
