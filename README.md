@@ -203,5 +203,3 @@ Projeto desenvolvido com 🎯 e IA durante o bootcamp **Santander — Construa s
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/sidneypsilva/vibematchats)
 
 ---
-
-<sub>Construído com [Lovable](https://lovable.dev).</sub>
