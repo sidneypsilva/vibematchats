@@ -92,7 +92,7 @@ Arquivos principais:
 
 ## 6. Tecnologias
 
-TanStack Start, React 19, TypeScript, Tailwind CSS v4, shadcn/ui, Vitest, docx e jsPDF. Construído com [Lovable](https://lovable.dev).
+TanStack Start, React 19, TypeScript, Tailwind CSS v4, shadcn/ui, Vitest, docx e pdf-lib. Construído com [Lovable](https://lovable.dev).
 
 ### Rodar localmente
 
