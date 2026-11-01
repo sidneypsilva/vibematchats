@@ -1,12 +1,40 @@
-# VibeMatch ATS
+# 🎯 VibeMatch ATS — Matchmaking de Currículos & Otimização para ATS
 
-> Projeto do desafio da DIO: **Criando um Gerador de Currículos ATS Friendly com Lovable**
+> VibeMatch ATS compara um currículo com uma vaga, mostra o percentual de match, as palavras-chave encontradas e as que faltam, e gera uma versão do currículo ajustada para ATS, pronta para baixar em PDF ou Word (.docx).
+
+![React 19](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TanStack Start](https://img.shields.io/badge/TanStack_Start-FF4154?style=for-the-badge&logo=reactquery&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind v4](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white)
+![PDF + DOCX](https://img.shields.io/badge/Export-PDF_%2B_DOCX-8B5CF6?style=for-the-badge)
+![Privacidade](https://img.shields.io/badge/100%25-Client--Side-FF6B6B?style=for-the-badge)
+![Built with Lovable](https://img.shields.io/badge/Built_with-Lovable-ff69b4?style=for-the-badge)
 
 **Aplicação publicada:** https://vibematchats.lovable.app
 
-VibeMatch ATS compara um currículo com uma vaga, mostra o percentual de match, as palavras-chave encontradas e as que faltam, e gera uma versão do currículo ajustada para ATS, pronta para baixar em PDF ou Word (.docx).
-
 > **Regra de ética:** a aplicação melhora a forma como a pessoa se apresenta e **nunca inventa experiências**. As sugestões só reescrevem fatos reais. Quando falta um número (por exemplo, um resultado em %), ela deixa um espaço marcado para a própria pessoa preencher.
+
+---
+
+## 🎓 Contexto acadêmico
+
+Projeto do desafio da [DIO](https://www.dio.me): **Criando um Gerador de Currículos ATS Friendly com Lovable**
+
+---
+
+## 📑 Sumário
+
+- [1. Qual problema a aplicação resolve](#1-qual-problema-a-aplicação-resolve)
+- [2. O mega prompt e o que mudou](#2-o-mega-prompt-e-o-que-mudou)
+  - [Escopo do MVP](#escopo-do-mvp)
+- [3. Como a análise funciona](#3-como-a-análise-funciona)
+- [4. Ajustes pedidos depois da primeira geração](#4-ajustes-pedidos-depois-da-primeira-geração)
+- [5. Exemplo de uso](#5-exemplo-de-uso)
+  - [Prints da aplicação](#prints-da-aplicação)
+- [6. Tecnologias](#6-tecnologias)
+  - [Rodar localmente](#rodar-localmente)
 
 ---
 
